@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import {
+  Route,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
+import Dashboard from "./dashboard/Dashboard";
+import Heroes from "./heroes/Heroes";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+        <HashRouter>
+          <div>
+            <h1>Tour of Heroes</h1>
+            <ul className="header">
+              <li><NavLink to="/dashboard/Dashboard">Dashboard</NavLink></li>
+              <li><NavLink to="/dashboard/Heroes">Heroes</NavLink></li>
+            </ul>
+            <div className="content">
+              <div className="content">
+                <Route path="/dashboard/Dashboard" component={Dashboard}/>
+                <Route path="/dashboard/Heroes" component={Heroes}/>
+              </div>
+            </div>
+          </div>
+        </HashRouter>
+    );
+  }
 }
 
 export default App;
+
