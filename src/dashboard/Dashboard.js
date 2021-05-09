@@ -1,41 +1,22 @@
-import React, { Component } from "react";
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
+import "./Dashboard.css";
 
-class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        var listItems = this.props.heroesList.map((hero) =>
-            <div>
-                <li key={hero.id}>
-                    <a>
-                        <span className="badge">{hero.id}</span> {hero.name}
-                    </a>
-                </li>
-            </div>
-        );
-        return (
-            <ul class="heroes">
-                {listItems}
-            </ul>
-        );
-        return (
-            <div>
+export const Dashboard = (props) => {
+    const heroListItems = useSelector(state => state.heroesList);
+    const listItems = heroListItems.map((hero) =>
+        <div>
+            <a>
+              {hero.name}
+            </a>
+        </div>
+    );
+
+    return (
+        <div>
             <h2>Top Heroes</h2>
-                <div>
-                    <ul className="heroes">
-                        {listItems}
-                    </ul>
-                </div>
+            <div>
+                {listItems}
             </div>
-        );
-    }
+        </div>
+    );
 }
-
-
-function mapStateToProps(state) {
-    return { heroesList : state.heroesList }
-}
-
-export default connect(mapStateToProps, null) (Dashboard);
