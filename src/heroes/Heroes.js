@@ -1,14 +1,15 @@
 import React, {useState} from "react";
-import "./Heroes.css";
 import {useDispatch} from "react-redux";
 import {HeroesItem} from "./HeroesItem";
 import {addHero} from "../actions";
+import {useHistory} from "react-router-dom";
+import "./Heroes.css";
 
 export const Heroes = (props) => {
 
     const dispatch = useDispatch();
     const  [heroName, setHeroName] = useState("");
-
+    const history = useHistory();
     function handleOnChange(e) {
         e.preventDefault();
         setHeroName(e.target.value);
@@ -17,6 +18,7 @@ export const Heroes = (props) => {
     function onSubmitForm () {
         dispatch(addHero(heroName));
         setHeroName("")
+        history.push('/');
     }
         return (
             <div className="todoListMain">

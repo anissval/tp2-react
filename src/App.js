@@ -1,28 +1,32 @@
 import {
-    Route,
-    NavLink,
-    HashRouter
+    BrowserRouter, Link,
+    Route
 } from "react-router-dom";
 import {Dashboard} from "./dashboard/Dashboard";
 import {Heroes} from "./heroes/Heroes";
+import {HeroDetails} from "./heroes/HeroDetails";
 
 export const App = (props) => {
     return (
-        <HashRouter>
+        <BrowserRouter>
             <div>
                 <h1>Tour of Heroes</h1>
                 <ul className="header">
-                    <li><NavLink to="/dashboard/Dashboard">Dashboard</NavLink></li>
-                    <li><NavLink to="/dashboard/Heroes">Heroes</NavLink></li>
+                    <li><Link to="/dashboard/Dashboard">Dashboard</Link></li>
+                    <li><Link to="/heroes/Heroes">Heroes</Link></li>
                 </ul>
                 <div className="content">
                     <div className="content">
-                        <Route path="/dashboard/Dashboard" component={Dashboard}/>
-                        <Route path="/dashboard/Heroes" component={Heroes}/>
+                        <switch>
+                            <Route exact path="/" component={Dashboard}></Route>
+                            <Route exact path="/dashboard/Dashboard" component={Dashboard}></Route>
+                            <Route path="/heroes/Heroes" component={Heroes}></Route>
+                            <Route path="/heroes/HeroDetails/:id" component={HeroDetails}></Route>
+                        </switch>
                     </div>
                 </div>
             </div>
-        </HashRouter>
+        </BrowserRouter>
     );
 }
 
