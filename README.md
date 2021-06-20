@@ -1,3 +1,5 @@
+# Baby Outfits is a e-commerce web page in progress, built using react JS technology.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
