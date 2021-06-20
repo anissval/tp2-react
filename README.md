@@ -1,4 +1,4 @@
-# Baby Outfits is a e-commerce web page in progress, built using react JS technology.
+# Tour of heroes is a web page in progress, created to show a list of heroes where you can add, remove and update heroes, built using react JS technology.
 
 # Getting Started with Create React App
 
