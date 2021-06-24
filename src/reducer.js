@@ -1,17 +1,10 @@
 import {ADD_HERO, REMOVE_HERO, UPDATE_HERO} from './actions'
-
+import heroesMock from "./mocks/HeroesMock";
 // Reducer
 export const heroesListManager = (state, action) => {
+
     if (state === undefined) {
-        return {
-            heroesList: [
-                {id: 11, name: 'Dr Nice'},
-                {id: 12, name: 'Narco'},
-                {id: 13, name: 'Bombasto'},
-                {id: 14, name: 'Celeritas'},
-                {id: 15, name: 'Magneta'}
-            ]
-        };
+        return {heroesList : heroesMock};
     }
 
     let heroesList = state.heroesList;

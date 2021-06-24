@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {updateHero} from "../actions";
+import {updateHero} from "../../actions";
 import {useParams, useHistory} from "react-router-dom";
 
 export const HeroDetails = (props) => {
@@ -30,7 +30,7 @@ export const HeroDetails = (props) => {
                 <div><span>id: </span>{hero.id}</div>
                 <div>
                     <label>Hero name: </label>
-                    <input type={'text'} value={newHeroName} onChange={onHandleChange}/>
+                    <input type={'text'} value={newHeroName} onChange={onHandleChange} data-testid={`update-input-${hero.id}`}/>
                 </div>
                 <button type={'button'} onClick={() => {
                     history.goBack()

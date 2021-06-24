@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import {HeroesItem} from "./HeroesItem";
-import {addHero} from "../actions";
+import {HeroesItem} from "../HeroesItem/HeroesItem";
+import {addHero} from "../../actions";
 import {useHistory} from "react-router-dom";
 import "./Heroes.css";
 
@@ -25,9 +25,9 @@ export const Heroes = (props) => {
                 <div className="header">
                     <label id="new-hero">Hero name: </label>
                     <form onSubmit={onSubmitForm}>
-                        <input placeholder="enter hero" value={heroName} onChange={handleOnChange}>
+                        <input placeholder="enter hero" value={heroName} onChange={handleOnChange} data-testid="add-input">
                         </input>
-                        <button className="add-button" type={"submit"}>add</button>
+                        <button className="add-button" type={"submit"} data-testid="add-button">add</button>
                     </form>
                 </div>
                 <HeroesItem/>
